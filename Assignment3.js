@@ -24,7 +24,7 @@ let graceMarks = marks.map(mark => mark + 5);
 console.log("Grace Marks:", graceMarks)
 
 //3. reduce() to find highest mark
-let highestMark = marks.reduce((max, current) => current > max ? current : max);
+let highestMark = marks.reduce((accumulator, element) => element > accumulator ? element : accumulator);
 console.log("Highest Mark:", highestMark)
 
 //4. find() first mark below 40
