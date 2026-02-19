@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    height: 100vh;              /* full screen height */
+    display: flex;              
+    flex-direction: column;     /* stack header, section, cards vertically */
+}
+
+/* Top bar */
+.header {
+    background-color: hsl(0, 0%, 93%);
+    padding: 15px 80px;
+}
+
+/* Red main section */
+.section {
+    background-color: hsl(2, 100%, 44%);
+    color: white;
+    padding: 100px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-left {
+    width: 55%;
+}
+
+.section-left h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.section-left p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.section-right img {
+    width: 220px;
+}
+
+/* Cards section */
+.cards {
+    display: flex;
+    flex: 1;     /* fill remaining height */
+}
+
+.card {
+    flex: 1;     /* equal width */
+    padding: 60px 40px;
+    background-color: hsl(0, 82%, 26%);
+    color: white;
+}
+
+/* Headings */
+.card h3 {
+    margin-bottom: 20px;
+}
+
+.card p {
+    line-height: 1.6;
+}
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+
+    height: 100vh;              /* full screen height */
+    display: flex;              
+    flex-direction: column;     /* stack header, section, cards vertically */
+}
+
+/* Top bar */
+.header {
+    background-color: hsl(0, 0%, 93%);
+    padding: 15px 80px;
+}
+
+/* Red main section */
+.section {
+    background-color: hsl(2, 100%, 44%);
+    color: white;
+    padding: 100px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-left {
+    width: 55%;
+}
+
+.section-left h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.section-left p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.section-right img {
+    width: 220px;
+}
+
+/* Cards section */
+.cards {
+    display: flex;
+    flex: 1;     /* fill remaining height */
+}
+
+.card {
+    flex: 1;     /* equal width */
+    padding: 60px 40px;
+    background-color: hsl(0, 82%, 26%);
+    color: white;
+}
+.middle {
+    border-left: 4px solid hsl(2, 100%, 44%);
+    border-right: 4px solid hsl(2, 100%, 44%);
+}
+
+/* Headings */
+.card h3 {
+    margin-bottom: 20px;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+/* Vertical red divider lines */
+.card:nth-child(2) {
+    border-left: 4px solid hsl(2, 100%, 44%);
+    border-right: 4px solid hsl(2, 100%, 44%);
+}
+
