@@ -17,7 +17,7 @@ function AddUser() {
   setLoading(true);
   setError(null); // clear previous error
   try {
-    let res = await fetch("http://localhost:4000/user-api/users", {
+    let res = await fetch("https://mern-week8-backend.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser),

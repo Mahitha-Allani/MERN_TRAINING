@@ -10,7 +10,7 @@ function UsersList() {
   useEffect(() => {
     async function getUsers() {
       try {
-        let res = await fetch("http://localhost:4000/user-api/users");
+        let res = await fetch("https://mern-week8-backend.onrender.com");
         if (res.status === 200) {
           let resObj = await res.json();
           setUsers(resObj.payload);
