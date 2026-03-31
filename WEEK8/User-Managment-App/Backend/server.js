@@ -11,7 +11,7 @@ config();
 const app = exp();
 //add cors
 app.use(cors({
-  origin:['http://localhost:5173']
+  origin: "https://week8-user-management-app-frontend.vercel.app",
 }))
 // Add body parser middleware
 app.use(exp.json());
