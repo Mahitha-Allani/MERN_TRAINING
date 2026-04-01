@@ -1,7 +1,17 @@
 import { create } from "zustand";
 import axios from "axios";
 
-// ADD THIS LINE
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+
+axios.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+// existing line
 const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 export const useAuth = create((set) => ({
@@ -16,13 +26,17 @@ export const useAuth = create((set) => ({
       set({ loading: true, error: null });
 
       const res = await axios.post(
-        `${BASE_URL}/common-api/login`,   
-        userCredObj,
-        { withCredentials: true }
-      );
+  `${BASE_URL}/common-api/login`,
+  userCredObj
+);
 
-      const user = res.data.payload;
-      localStorage.setItem("currentUser", JSON.stringify(user));
+const user = res.data.payload;
+const token = res.data.token; // 👈 IMPORTANT
+
+localStorage.setItem("currentUser", JSON.stringify(user));
+localStorage.setItem("token", token); // 👈 ADD THIS
+
+      
 
       set({
         currentUser: user,
@@ -46,7 +60,7 @@ export const useAuth = create((set) => ({
 
       await axios.get(
         `${BASE_URL}/common-api/logout`,   
-        { withCredentials: true }
+    
       );
 
       localStorage.removeItem("currentUser");
@@ -70,11 +84,14 @@ export const useAuth = create((set) => ({
     try {
       set({ loading: true });
 
-      const res = await axios.get(
-        `${BASE_URL}/common-api/check-auth`,  
-        { withCredentials: true }
-      );
-
+     const res = await axios.get(
+  `${BASE_URL}/common-api/check-auth`,
+  {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    }
+  }
+);
       const user = res.data.payload;
 
       localStorage.setItem("currentUser", JSON.stringify(user));

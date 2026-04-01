@@ -17,7 +17,11 @@ const app = exp();
 // enable CORS
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://mern-training-lemon.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://mern-training-lemon.vercel.app",         
+      "https://mern-training-q6pkeslz4-mahitha-allanis-projects.vercel.app"  
+    ],
     credentials: true
   })
 );
