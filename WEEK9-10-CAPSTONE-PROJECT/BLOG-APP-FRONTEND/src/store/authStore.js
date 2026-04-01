@@ -1,6 +1,9 @@
 import { create } from "zustand";
 import axios from "axios";
 
+// ✅ ADD THIS LINE
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 export const useAuth = create((set) => ({
   currentUser: JSON.parse(localStorage.getItem("currentUser")) || null,
   isAuthenticated: !!localStorage.getItem("currentUser"),
@@ -13,21 +16,19 @@ export const useAuth = create((set) => ({
       set({ loading: true, error: null });
 
       const res = await axios.post(
-        "http://localhost:4000/common-api/login",
-        userCredObj,              
+        `${BASE_URL}/common-api/login`,   // ✅ FIXED
+        userCredObj,
         { withCredentials: true }
       );
 
-      console.log("res is:", res);
-
       const user = res.data.payload;
-      localStorage.setItem("currentUser", JSON.stringify(user)); // save
+      localStorage.setItem("currentUser", JSON.stringify(user));
 
       set({
         currentUser: user,
         isAuthenticated: true,
         loading: false,
-        error: null,          
+        error: null,
       });
     } catch (err) {
       set({
@@ -42,8 +43,14 @@ export const useAuth = create((set) => ({
   logout: async () => {
     try {
       set({ loading: true, error: null });
-      await axios.get("http://localhost:4000/common-api/logout", { withCredentials: true });
-      localStorage.removeItem("currentUser"); // clear
+
+      await axios.get(
+        `${BASE_URL}/common-api/logout`,   // ✅ FIXED
+        { withCredentials: true }
+      );
+
+      localStorage.removeItem("currentUser");
+
       set({
         loading: false,
         isAuthenticated: false,
@@ -58,47 +65,44 @@ export const useAuth = create((set) => ({
       });
     }
   },
- checkAuth: async () => {
-  try {
-    set({ loading: true });
 
-    const res = await axios.get(
-      "http://localhost:4000/common-api/check-auth",
-      { withCredentials: true }
-    );
+  checkAuth: async () => {
+    try {
+      set({ loading: true });
 
-    const user = res.data.payload;
+      const res = await axios.get(
+        `${BASE_URL}/common-api/check-auth`,   // ✅ FIXED
+        { withCredentials: true }
+      );
 
-    console.log("CHECK AUTH USER:", user); // ✅ debug
+      const user = res.data.payload;
 
-    // SAVE again
-    localStorage.setItem("currentUser", JSON.stringify(user));
+      localStorage.setItem("currentUser", JSON.stringify(user));
 
-    set({
-      currentUser: user,
-      isAuthenticated: true,
-      loading: false,
-    });
-
-  } catch (err) {
-    console.log("CHECK AUTH ERROR:", err);
-
-    // ✅ IMPORTANT: fallback to localStorage
-    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-
-    if (storedUser) {
       set({
-        currentUser: storedUser,
+        currentUser: user,
         isAuthenticated: true,
         loading: false,
       });
-    } else {
-      set({
-        currentUser: null,
-        isAuthenticated: false,
-        loading: false,
-      });
+
+    } catch (err) {
+      console.log("CHECK AUTH ERROR:", err);
+
+      const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+
+      if (storedUser) {
+        set({
+          currentUser: storedUser,
+          isAuthenticated: true,
+          loading: false,
+        });
+      } else {
+        set({
+          currentUser: null,
+          isAuthenticated: false,
+          loading: false,
+        });
+      }
     }
   }
-}
 }));
