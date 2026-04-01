@@ -10,22 +10,18 @@ import { verifyToken } from "../Middlewares/verifyToken.js";
 commonRoute.post("/login", async (req, res) => {
   try {
     const userCred = req.body;
-
     const { token, user } = await login(userCred);
 
     res.cookie("token", token, {
-  httpOnly: true,
-  sameSite: "none",  // required for cross-site (Vercel → Render)
-  secure: true       // required when sameSite is "none"
-});
-    res.status(200).json({message: "Login Success",payload:user});
-
-  } 
-  catch (err)
-   {
-    res.status(err.status || 500).json({
-      message: err.message || "Login failed"
+      httpOnly: true,
+      sameSite: "none",
+      secure: true
     });
+
+    //send token in body so frontend can store it
+    res.status(200).json({ message: "Login Success", payload: user, token });
+  } catch (err) {
+    res.status(err.status || 500).json({ message: err.message || "Login failed" });
   }
 });
 
