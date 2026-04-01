@@ -17,7 +17,7 @@ const app = exp();
 // enable CORS
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173", "https://mern-training-lemon.vercel.app"],
     credentials: true
   })
 );
