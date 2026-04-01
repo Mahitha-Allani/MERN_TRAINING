@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import axios from "axios";
 
-// ✅ ADD THIS LINE
-const BASE_URL = import.meta.env.VITE_API_URL;
+// ADD THIS LINE
+const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 export const useAuth = create((set) => ({
   currentUser: JSON.parse(localStorage.getItem("currentUser")) || null,
@@ -16,7 +16,7 @@ export const useAuth = create((set) => ({
       set({ loading: true, error: null });
 
       const res = await axios.post(
-        `${BASE_URL}/common-api/login`,   // ✅ FIXED
+        `${BASE_URL}/common-api/login`,   
         userCredObj,
         { withCredentials: true }
       );
@@ -45,7 +45,7 @@ export const useAuth = create((set) => ({
       set({ loading: true, error: null });
 
       await axios.get(
-        `${BASE_URL}/common-api/logout`,   // ✅ FIXED
+        `${BASE_URL}/common-api/logout`,   
         { withCredentials: true }
       );
 
@@ -71,7 +71,7 @@ export const useAuth = create((set) => ({
       set({ loading: true });
 
       const res = await axios.get(
-        `${BASE_URL}/common-api/check-auth`,   // ✅ FIXED
+        `${BASE_URL}/common-api/check-auth`,  
         { withCredentials: true }
       );
 
