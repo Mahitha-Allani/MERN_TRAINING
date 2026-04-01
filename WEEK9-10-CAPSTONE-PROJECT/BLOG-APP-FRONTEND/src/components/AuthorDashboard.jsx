@@ -24,6 +24,7 @@ export default function AuthorDashboard() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const BASE_URL = import.meta.env.VITE_API_URL || "";
 
   useEffect(() => {
     if (!currentUser?._id || currentUser?.role !== "AUTHOR") {
@@ -36,7 +37,7 @@ export default function AuthorDashboard() {
         setLoading(true);
         setError(null);
         const res = await axios.get(
-          `http://localhost:4000/author-api/articles/${currentUser._id}`,
+`${BASE_URL}/author-api/articles/${currentUser._id}`,
           { withCredentials: true }
         );
         //console.log(res.data.payload);

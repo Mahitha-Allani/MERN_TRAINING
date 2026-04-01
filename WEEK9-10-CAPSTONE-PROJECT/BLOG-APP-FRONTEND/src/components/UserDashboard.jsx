@@ -26,6 +26,7 @@ export default function UserDashboard() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const BASE_URL = import.meta.env.VITE_API_URL || "";
 
   // Fetch all active articles from all authors on component mount
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function UserDashboard() {
         setLoading(true);
         // This route returns articles array directly (not wrapped in payload)
         const res = await axios.get(
-          "http://localhost:4000/common-api/articles",
+          `${BASE_URL}/common-api/articles`,
           { withCredentials: true }
         );
         // Handle both array response and {payload: []} response formats

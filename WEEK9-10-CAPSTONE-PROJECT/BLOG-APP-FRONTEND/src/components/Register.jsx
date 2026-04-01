@@ -22,7 +22,7 @@ export default function Register() {
  const [loading,setLoading] = useState(false);
  const [error,setError] = useState(null);
  const [preview,setPreview] = useState(null); 
-
+const BASE_URL = import.meta.env.VITE_API_URL || "";
  const navigate = useNavigate();
 
  const onSubmit = async (newUser) => {
@@ -47,12 +47,12 @@ export default function Register() {
 
     if (role === "AUTHOR") {
       resObj = await axios.post(
-        "http://localhost:4000/author-api/authors",
+        `${BASE_URL}/author-api/authors`,
         formData
       );
     } else {
       resObj = await axios.post(
-        "http://localhost:4000/user-api/users",
+        `${BASE_URL}/user-api/users`,
         formData
       );
     }

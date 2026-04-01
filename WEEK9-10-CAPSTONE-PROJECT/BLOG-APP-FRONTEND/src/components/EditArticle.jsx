@@ -21,7 +21,7 @@ function EditArticle() {
   const currentUser = useAuth((state) => state.currentUser);
   //console.log("currentUser:", currentUser);
   const navigate = useNavigate();
-
+const BASE_URL = import.meta.env.VITE_API_URL || "";
   const {
     register,
     handleSubmit,
@@ -40,7 +40,7 @@ function EditArticle() {
   const updateArticle = async (data) => {
     try {
       const res = await axios.put(
-        `http://localhost:4000/author-api/articles`,
+        `${BASE_URL}/author-api/articles`,
         { ...data, articleId: article._id },  //  articleId in body
         { withCredentials: true }
       );

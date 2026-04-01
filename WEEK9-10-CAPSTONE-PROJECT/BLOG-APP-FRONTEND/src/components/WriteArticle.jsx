@@ -16,12 +16,12 @@ export default function WriteArticle() {
   // useForm for form state and validation
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
-
+const BASE_URL = import.meta.env.VITE_API_URL || "";
   const onSubmit = async (data) => {
     try {
       // Post article — JWT sent via httpOnly cookie (withCredentials)
       const res = await axios.post(
-        "http://localhost:4000/author-api/articles",
+        `${BASE_URL}/author-api/articles`,
         data,
         { withCredentials: true }
       );
