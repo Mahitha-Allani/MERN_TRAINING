@@ -14,11 +14,10 @@ commonRoute.post("/login", async (req, res) => {
     const { token, user } = await login(userCred);
 
     res.cookie("token", token, {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: false
-    });
-
+  httpOnly: true,
+  sameSite: "none",  // required for cross-site (Vercel → Render)
+  secure: true       // required when sameSite is "none"
+});
     res.status(200).json({message: "Login Success",payload:user});
 
   } 
@@ -35,12 +34,12 @@ commonRoute.get("/logout",async(req,res)=>{
     //logout for User,Author and Admin
   //clear the coookie named 'token'
   //must match the original settings 
-  res.clearCookie("token",{
-    httpOnly:true,
-    secure:false,
-    sameSite:"lax",
-
-  })
+ // logout cookie - TO
+res.clearCookie("token", {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",  // must match login settings exactly
+});
   res.status(200).json({ message: "Logout success" });
   
 })
