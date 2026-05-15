@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import {
   pageBackground,
   pageWrapper,
@@ -11,13 +10,10 @@ import {
 } from "../styles/common";
 
 function Home() {
-
-  const navigate = useNavigate();
-
   return (
     <div className={`${pageBackground} relative overflow-hidden`}>
 
-      {/* Subtle Background Image */}
+      {/* ✅ Subtle Background Image */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <img
           src="https://img.freepik.com/premium-photo/modern-blogging-sketch-white-wall-background-blog-media-concept-3d-rendering_670147-66810.jpg"
@@ -26,7 +22,7 @@ function Home() {
         />
       </div>
 
-      {/* Main Content */}
+      {/* ✅ Main Content */}
       <div className={`${pageWrapper} relative z-10`}>
 
         {/* Hero */}
@@ -34,19 +30,10 @@ function Home() {
           <h1 className={pageTitleClass}>
             Explore. Write. Share.
           </h1>
-
-          <p className={`${bodyText} max-w-xl mx-auto mb-6`}>
+          <p className={`${bodyText} max-w-xl mx-auto`}>
             A minimal blogging platform where ideas flow, stories connect,
             and knowledge is shared across categories.
           </p>
-
-          {/* Start Blogging Button */}
-          <button
-            onClick={() => navigate("/login")}
-            className="px-6 py-3 rounded-xl bg-black text-white text-sm font-medium hover:opacity-90 transition"
-          >
-            Start Blogging
-          </button>
         </div>
 
         {/* Categories */}

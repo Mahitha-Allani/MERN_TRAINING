@@ -72,7 +72,7 @@ userRoute.get("/articles/:id", verifyToken("USER", "AUTHOR"), async (req, res) =
     res.status(500).json({ error: "Failed to fetch article" });
   }
 });
-
+//comments
 
 userRoute.post("/articles/:id/comments", verifyToken("USER", "AUTHOR"), async (req, res) => {
   try {
