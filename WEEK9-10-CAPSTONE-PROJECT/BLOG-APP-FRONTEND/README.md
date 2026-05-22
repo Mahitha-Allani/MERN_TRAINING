@@ -90,39 +90,74 @@ npm install --save-dev nodemon
 }
 ---
 
-### Step 5: Start Backend
-
-npm run server
----
-# Folder Structure
-
-
-src/
+#BLOG-APPLICATION
 │
-├── components/
-│   ├── UserProfile.jsx
-│   ├── AuthorProfile.jsx
-│   ├── ArticleCard.jsx
-│   ├── Navbar.jsx
-│   └── Footer.jsx
+├── BLOG-APP-FRONTEND
+│   │
+│   ├── public
+│   │
+│   ├── src
+│   │   │
+│   │   ├── assets
+│   │   │
+│   │   ├── components
+│   │   │   ├── UserProfile.jsx
+│   │   │   ├── AuthorProfile.jsx
+│   │   │   ├── ArticleCard.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   └── ProtectedRoute.jsx
+│   │   │
+│   │   ├── pages
+│   │   │   ├── Home.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── AddArticle.jsx
+│   │   │   ├── EditArticle.jsx
+│   │   │   └── NotFound.jsx
+│   │   │
+│   │   ├── context
+│   │   │   └── AuthContext.jsx
+│   │   │
+│   │   ├── api
+│   │   │   └── axiosInstance.js
+│   │   │
+│   │   ├── hooks
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   │
+│   ├── .env
+│   ├── package.json
+│   └── vite.config.js
 │
-├── pages/
-│   ├── Home.jsx
-│   ├── Login.jsx
-│   ├── Register.jsx
-│   ├── AddArticle.jsx
-│   └── EditArticle.jsx
+├── BLOG-APP-BACKEND
+│   │
+│   ├── APIs
+│   │   ├── user-api.js
+│   │   └── author-api.js
+│   │
+│   ├── config
+│   │   └── db.js
+│   │
+│   ├── middlewares
+│   │   ├── verifyToken.js
+│   │   └── errorHandler.js
+│   │
+│   ├── models
+│   │   ├── userModel.js
+│   │   └── articleModel.js
+│   │
+│   ├── services
+│   │
+│   ├── .env
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── server.js
+│   └── README.md
 │
-├── context/
-│   └── AuthContext.jsx
-│
-├── api/
-│   └── axiosInstance.js
-│
-├── App.jsx
-└── main.jsx
-
----
+└── README.md
 
 # Responsive Grid Layout
 
@@ -227,5 +262,70 @@ Context API is used for:
 
 npm run dev
 
-## Backend
-npm run server
+## Environment Variables
+Frontend .env
+VITE_API_BASE_URL=http://localhost:5000/api
+
+
+
+🚀 Vercel Deployment Process
+Step 1: Create Vercel Account
+
+Open:
+
+Vercel Signup/Login
+
+Sign in using:
+
+GitHub
+Google
+Email account
+Step 2: Import GitHub Repository
+
+After login:
+
+Click Add New
+Select Project
+Import GitHub repository
+Select frontend repository
+⚙️ Configure Deployment Settings
+Basic Configuration
+Field	Value
+Framework Preset	Vite
+Root Directory	BLOG-APP-FRONTEND
+Build Command	npm run build
+Output Directory	dist
+🔐 Add Environment Variables
+
+Inside Vercel dashboard:
+
+Settings → Environment Variables
+
+Add:
+
+VITE_API_BASE_URL=https://your-backend.onrender.com/api
+
+Environment variables are required because .env files are not uploaded to GitHub.
+
+🏗️ Build Process
+
+When deployment starts, Vercel automatically:
+
+Clones GitHub repository
+Installs dependencies
+Executes build command
+Generates production build
+Deploys frontend application
+Creates live deployment URL
+
+📦 Vite Production Build
+
+Build frontend manually using:
+
+npm run build
+
+This generates the dist folder containing optimized production files.
+
+🌍 Frontend Deployment URL
+
+https://mern-training-lemon.vercel.app/
