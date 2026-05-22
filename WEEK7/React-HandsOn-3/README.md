@@ -1,16 +1,57 @@
-# React + Vite
+Country Explorer
+A React app to search and explore countries around the world, built with Vite and Tailwind CSS. Deployed on Vercel.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Demo: https://week7-react-handson3.vercel.app/
 
-Currently, two official plugins are available:
+Tech Stack
+React — UI library
+Vite — Build tool with HMR
+Tailwind CSS — Styling
+REST Countries API — Country data source
+ESLint — Code linting
+Project Structure
+country-explorer/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── CountryCard.jsx    # Displays individual country info
+│   │   ├── CountryList.jsx    # Renders the grid of country cards
+│   │   └── SearchBar.jsx      # Search input with live filtering
+│   ├── App.css
+│   ├── App.jsx                # Root component, manages search state
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
+Features
+Live search — filter countries as you type
+Country cards with key details
+Responsive layout with Tailwind CSS
+Getting Started
+Prerequisites
+Node.js v18+
+npm or yarn
+Install Dependencies
+npm install
+Run in Development
+npm run dev
+Open http://localhost:5173 in your browser.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Build for Production
+npm run build
+Preview Production Build
+npm run preview
+Deployment on Vercel
+This app is deployed on Vercel
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Steps to Deploy
+Push your code to GitHub.
+Go to vercel.com and import your repository.
+Vercel auto-detects Vite — no extra config needed.
+Click Deploy.
+Vercel auto-deploys on every push to the main branch.

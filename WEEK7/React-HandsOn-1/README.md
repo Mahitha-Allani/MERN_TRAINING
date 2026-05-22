@@ -1,16 +1,95 @@
-# React + Vite
+#  PRODUCTS APP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based product listing app built with Vite and Tailwind CSS. Deployed on Vercel.
 
-Currently, two official plugins are available:
+ **Live Demo:**   https://week7-react-handson1.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** — UI library
+- **React Router** — Client-side routing
+- **Vite** — Build tool with HMR
+- **Tailwind CSS** — Styling
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+project/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── ContactUs.jsx      # Contact page / form
+│   │   ├── Footer.jsx         # Site footer
+│   │   ├── Header.jsx         # Navigation header
+│   │   ├── Home.jsx           # Landing / home page
+│   │   ├── Product.jsx        # Individual product detail
+│   │   ├── ProductsList.jsx   # Grid of product cards
+│   │   └── RootLayout.jsx     # Shared layout wrapper
+│   ├── App.css
+│   ├── App.jsx                # Routes and app entry
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+## Features
+
+-  Home page with hero / intro section
+-  Products listing page
+-  Individual product detail view
+-  Contact Us page
+-  Shared header and footer across all pages
+-  Fully responsive with Tailwind CSS
+
+
+### Prerequisites
+
+- Node.js v18+
+- npm or yarn
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run in Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173] in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Deployment on Vercel
+
+This app is deployed on Vercel
+
+### Steps to Deploy
+
+1. Push your code to GitHub.
+2. Go to [vercel.com](https://vercel.com) and import your repository.
+3. Vercel auto-detects Vite — no extra config needed.
+4. Click **Deploy**.
+
+Vercel auto-deploys on every push to the `main` branch.
