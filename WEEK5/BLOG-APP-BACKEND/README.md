@@ -52,6 +52,80 @@ Design schemas to define the structure, validation rules, and data types for dat
 
 Design RESTful APIs for resources such as users, authors, and articles using HTTP methods like GET, POST, PUT, and DELETE. REST APIs enable communication between frontend and backend systems while supporting CRUD operations, authentication, and data management in a scalable and maintainable way.
 
+WEEK9-10-CAPSTONE-PROJECT
+│
+├── BLOG-APP-BACKEND
+│   │
+│   ├── APIs
+│   │   ├── userApi.js
+│   │   ├── authorApi.js
+│   │   └── adminApi.js
+│   │
+│   ├── Middlewares
+│   │   ├── errorHandler.js
+│   │   ├── verifyToken.js
+│   │   └── asyncErrorHandler.js
+│   │
+│   ├── config
+│   │   └── db.js
+│   │
+│   ├── models
+│   │   ├── userModel.js
+│   │   ├── articleModel.js
+│   │   └── authorModel.js
+│   │
+│   ├── services
+│   │   ├── userService.js
+│   │   ├── articleService.js
+│   │   └── authService.js
+│   │
+│   ├── .env
+│   ├── .gitignore
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── README.md
+│   ├── req.http
+│   └── server.js
+│
+├── BLOG-APP-FRONTEND
+│   │
+│   ├── public
+│   │
+│   ├── src
+│   │   ├── assets
+│   │   │
+│   │   ├── components
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── ArticleCard.jsx
+│   │   │   └── Loader.jsx
+│   │   │
+│   │   ├── pages
+│   │   │   ├── Home.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── CreateArticle.jsx
+│   │   │   └── EditArticle.jsx
+│   │   │
+│   │   ├── context
+│   │   │   └── AuthContext.jsx
+│   │   │
+│   │   ├── services
+│   │   │   └── axiosInstance.js
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   │
+│   ├── .env
+│   ├── .gitignore
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── README.md
+│   └── vite.config.js
+│
+└── README.md
 
 # APIs Used
 
